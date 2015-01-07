@@ -1,0 +1,23 @@
+{
+  "name": "kathiescott.co.uk",
+  "version": "0.0.0",
+  "description": "Gallery site powered by FLickr",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "~4.9.x",
+    "mustache-express": "latest"
+  },
+  "engines": {
+    "node": "0.10.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/benscott/kathiescott.co.uk.git"
+  },
+  "license": "MIT"
+}
+
+
