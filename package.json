@@ -7,8 +7,12 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "~4.9.x",
-    "mustache-express": "latest"
+    "express": "~4.10.6",
+    "serve-favicon": "~2.2.0",
+    "hogan-middleware": "*",
+    "less-middleware": "1.0.x",
+    "flickrapi": "*",
+    "node-cache": "*"
   },
   "engines": {
     "node": "0.10.x"

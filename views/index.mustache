@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+
+    {{>about}}
+
+    {{#images}}
+
+        <img src="{{ url_sq }}" width="{{ width_sq }}" height="{{ height_sq }}" title="{{ title }}"/>
+
+        <h3>{{ title }}</h3>
+        <p>{{ description._content }}</p>
+
+    {{/images}}
+
+  </body>
+</html>
