@@ -1,13 +1,7 @@
 //var express = require('express');
 //var router = express.Router();
 
-var Flickr = require("flickrapi"),
-    flickrOptions = {
-      api_key: "f53d8432570679baf7f6b78f0046efba",
-      secret: "7bbb4bee7053f108"
-    };
-
-console.log(process.env.FLICKR_API_KEY);
+var Flickr = require("flickrapi")
 
 module.exports = function(app, cache) {
 
@@ -21,6 +15,11 @@ module.exports = function(app, cache) {
 
         var key = 'flickr-photos'
 
+        var flickrOptions = {
+          api_key: process.env.FLICKR_KEY,
+          secret: process.env.FLICKR_SECRET
+        };
+
         // Try and retrieve from cache
         cache.get(key, function( err, value ) {
 
@@ -32,7 +31,7 @@ module.exports = function(app, cache) {
                         // we can now use "flickr" as our API object,
                         // but we can only call public methods and access public data
                         flickr.photosets.getPhotos({
-                            photoset_id: "72157650146062711",
+                            photoset_id: process.env.FLICKR_PHOTOSET_ID,
                             extras: 'description, url_sq'
                         }, function (err, result) {
 
@@ -40,7 +39,7 @@ module.exports = function(app, cache) {
                                 throw new Error(err);
                             }
 
-                            console.log('NOT CACHED')
+                            console.log('Not cached: Retrieving images from Flickr')
 
                             params['images'] = result['photoset']['photo'] || []
 

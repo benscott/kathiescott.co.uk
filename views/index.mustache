@@ -1,21 +1,31 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>{{ title }}</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
 
-    {{>about}}
+    <link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/vendor/blueimp-gallery/css/blueimp-gallery.min.css">
+    <link rel="stylesheet" href="/vendor/bootstrap-image-gallery/css/bootstrap-image-gallery.min.css">
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
 
-    {{#images}}
+</head>
+<body>
 
-        <img src="{{ url_sq }}" width="{{ width_sq }}" height="{{ height_sq }}" title="{{ title }}"/>
+{{>about}}
 
-        <h3>{{ title }}</h3>
-        <p>{{ description._content }}</p>
+{{#images}}
 
-    {{/images}}
+    <img src="{{ url_sq }}" width="{{ width_sq }}" height="{{ height_sq }}" title="{{ title }}"/>
 
-  </body>
+    <h3>{{ title }}</h3>
+
+    <p>{{ description._content }}</p>
+
+{{/images}}
+
+<script src="/vendor/jquery/dist/jquery.min.js"></script>
+<script src="/vendor/blueimp-gallery/js/jquery.blueimp-gallery.min.js"></script>
+<script src="/vendor/bootstrap-image-gallery/js/bootstrap-image-gallery.min.js"></script>
+
+</body>
 </html>
