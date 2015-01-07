@@ -3,7 +3,7 @@ dist
 data
 .tmp
 .sass-cache
-public/libs
+public/vendor
 *.cfg
 *.log
 .env
