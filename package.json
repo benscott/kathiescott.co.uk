@@ -13,7 +13,8 @@
         "hogan-middleware": "*",
         "less-middleware": "1.0.x",
         "flickrapi": "*",
-        "node-cache": "*"
+        "node-cache": "*",
+        "bower": "latest"
     },
     "engines": {
         "node": "0.10.x"
