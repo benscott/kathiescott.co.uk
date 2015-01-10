@@ -1,5 +1,3 @@
-//var express = require('express');
-//var router = express.Router();
 
 var Flickr = require("flickrapi")
 
@@ -27,23 +25,38 @@ module.exports = function(app, cache) {
 
                 if (value[key] === undefined) {
 
+                    console.log('Not cached: Retrieving images from Flickr')
+
                     Flickr.tokenOnly(flickrOptions, function (error, flickr) {
                         // we can now use "flickr" as our API object,
                         // but we can only call public methods and access public data
-                        flickr.photosets.getPhotos({
-                            photoset_id: process.env.FLICKR_PHOTOSET_ID,
-                            extras: 'description, url_sq'
+                            flickr.people.getPublicPhotos({
+                            user_id: process.env.FLICKR_USER_ID,
+                            extras: 'description, url_q, url_l'
                         }, function (err, result) {
 
                             if (err) {
                                 throw new Error(err);
                             }
 
-                            console.log('Not cached: Retrieving images from Flickr')
+                            params['images'] = []
 
-                            params['images'] = result['photoset']['photo'] || []
+                            result['photos']['photo'].forEach(function(photo){
 
-                            cache.set(key, params['images'])
+                                params['images'].push({
+                                    'title': photo['title'],
+                                    'thumbnail': photo['url_q'],
+                                    'image': photo['url_l'],
+                                    'description': photo['description']['_content'].split('\n')
+                                })
+
+                            })
+
+                            // Only cache if we have images
+                            if(params['images'].length){
+                                cache.set(key, params['images'])
+                            }
+
                             res.render('index', params);
 
                         });

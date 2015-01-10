@@ -29,7 +29,9 @@ app.set('port', (process.env.PORT || 5000));
 
 // routes ==================================================
 
+require('./routes/cache')(app, cache);
 require('./routes/index')(app, cache);
+
 
 // error handlers ==================================================
 

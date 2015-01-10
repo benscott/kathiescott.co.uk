@@ -11,17 +11,60 @@
 </head>
 <body>
 
-{{>about}}
+<!-- Gallery -->
+<div class="container">
 
-{{#images}}
+    <div class="row">
 
-    <img src="{{ url_sq }}" width="{{ width_sq }}" height="{{ height_sq }}" title="{{ title }}"/>
+        <div class="col-md-3">
+            <div class="about">
+                {{>about}}
+            </div>
+        </div>
 
-    <h3>{{ title }}</h3>
+        <div class="col-md-12">
 
-    <p>{{ description._content }}</p>
+            <div class="row">
 
-{{/images}}
+                {{#images}}
+
+                    <div class="col-lg-5 col-md-5 col-xs-6 thumb">
+
+                        <a href="{{ image }}" title="{{ title }}" data-gallery>
+                            <img class="img-responsive" width="303" height="303" src="{{ thumbnail }}" alt="{{ title }}">
+                        </a>
+
+                        <div>
+
+                            <h3>{{ title }}</h3>
+
+                            <p class="description">
+                                {{#description}}
+                                    <span>{{.}}</span>
+                                {{/description}}
+                            </p>
+
+                        </div>
+                    </div>
+
+                {{/images}}
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="row text-center" id="footer">
+
+        <p>All images &copy; Kathie Scott</p>
+        <p><a title="Built by Ben Scott" href="http://benscott.co.uk">Website built by Ben Scott</a></p>
+
+    </div>
+
+</div>
+
+{{>lightbox}}
 
 <script src="/vendor/jquery/dist/jquery.min.js"></script>
 <script src="/vendor/blueimp-gallery/js/jquery.blueimp-gallery.min.js"></script>
