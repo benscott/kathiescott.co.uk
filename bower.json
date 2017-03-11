@@ -2,6 +2,8 @@
   "name": "kathiescott.co.uk",
   "version": "1.0.0",
   "dependencies": {
-    "bootstrap-image-gallery": "https://github.com/blueimp/Bootstrap-Image-Gallery.git"
+    "bootstrap-image-gallery": "https://github.com/blueimp/Bootstrap-Image-Gallery.git",
+    "blueimp-gallery": "https://github.com/blueimp/Gallery.git",
+    "jquery": "^3.1.1"
   }
 }
