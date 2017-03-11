@@ -23,7 +23,7 @@ module.exports = function(app, cache) {
 
             if (!err) {
 
-                if (value[key] === undefined) {
+                if (value === undefined || value[key] === undefined) {
 
                     console.log('Not cached: Retrieving images from Flickr')
 
